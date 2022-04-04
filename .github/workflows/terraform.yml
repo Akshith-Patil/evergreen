@@ -21,8 +21,8 @@ jobs:
 
     - name: Run script file
       run: |
-         chmod +x ./terraform/bootstrap.sh
-         ./terraform/bootstrap.sh
+         chmod +x "${GITHUB_WORKSPACE}/terraform/bootstrap.sh"
+         "${GITHUB_WORKSPACE}/terraform/bootstrap.sh"
       shell: bash
 
     - name: Terraform fmt
