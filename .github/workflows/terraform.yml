@@ -28,6 +28,11 @@ jobs:
         with:
           terraform_wrapper: false
 
+      - name: Download a single artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: nextjs-build
+
       - name: run bootstrap script
         run: |
           chmod +x "${GITHUB_WORKSPACE}/terraform/bootstrap.sh"
