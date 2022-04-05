@@ -34,11 +34,13 @@ jobs:
           name: nextjs-build
           
       - name: Display structure of downloaded files
-        run: ls -lha -R
+        run: |
+          ls -lha -R
+          pwd
 
       - name: run bootstrap script
         run: |
-          zip -ur --must-match ../eb_app.zip ../package.json .next
+          zip -ur --must-match ../eb_app.zip ../package.json ../.next
         shell: bash
 
       - name: Terraform fmt
