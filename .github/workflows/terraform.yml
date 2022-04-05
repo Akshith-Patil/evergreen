@@ -32,10 +32,10 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: nextjs-build
-          path: "${GITHUB_WORKSPACE}/"
           
       - name: Display structure of downloaded files
-        run: ls -lha -R
+        run: ls -R
+        working-directory: "${GITHUB_WORKSPACE}/"
 
       - name: run bootstrap script
         run: |
