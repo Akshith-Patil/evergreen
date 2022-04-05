@@ -32,11 +32,15 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: nextjs-build
+          path: "${GITHUB_WORKSPACE}/"
+          
+      - name: Display structure of downloaded files
+        run: ls -R
+        working-directory: "${GITHUB_WORKSPACE}/"
 
       - name: run bootstrap script
         run: |
-          chmod +x "${GITHUB_WORKSPACE}/terraform/bootstrap.sh"
-          "${GITHUB_WORKSPACE}/terraform/bootstrap.sh"
+          zip -ur --must-match ../eb_app.zip ../package.json ../.next
         shell: bash
 
       - name: Terraform fmt
