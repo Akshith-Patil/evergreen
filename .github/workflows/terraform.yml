@@ -32,13 +32,8 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: nextjs-build
-          path: ../.next/
+          path: .next/
           
-      - name: Display structure of downloaded files
-        run: |
-          ls -lha -R ../
-          pwd
-
       - name: run bootstrap script
         run: |
           zip -ur --must-match ../eb_app.zip ../package.json ../.next
