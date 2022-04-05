@@ -28,6 +28,12 @@ jobs:
         with:
           terraform_wrapper: false
 
+      - name: run bootstrap script
+        run: |
+          chmod +x "${GITHUB_WORKSPACE}/terraform/bootstrap.sh"
+          "${GITHUB_WORKSPACE}/terraform/bootstrap.sh"
+        shell: bash
+
       - name: Terraform fmt
         id: fmt
         run: terraform fmt -check
